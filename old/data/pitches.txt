@@ -1,0 +1,106 @@
+# Pitch arsenal (shared by you and the COM pitcher).
+#
+# Coordinate/sign conventions are from the CATCHER'S point of view
+# (same as Statcast): +x = catcher's right, z = up, y = toward the pitcher.
+#
+#   backspin_rpm  > 0 : lift / "ride" (4-seam).    < 0 : topspin (curveball drop)
+#   sidespin_rpm  > 0 : ball moves RIGHT (RHP glove-side: slider / sweeper)
+#                 < 0 : ball moves LEFT  (RHP arm-side: sinker / changeup run)
+#   gyrospin_rpm      : bullet-spin along the flight path. Adds NO movement by
+#                       itself - it "uses up" spin that would otherwise break.
+#                       Sign only flips the axis direction; magnitude is what matters.
+#
+# key = short id used by ai.txt pitch-mix weights and shown on hotkeys 1-9.
+
+[pitch]
+name = 4-Seam Fastball
+key = FF
+velocity_mph = 96
+backspin_rpm = 2150
+sidespin_rpm = -350
+gyrospin_rpm = 200
+
+[pitch]
+name = Sinker
+key = SI
+velocity_mph = 94
+backspin_rpm = 1350
+sidespin_rpm = -1250
+gyrospin_rpm = 500
+
+[pitch]
+name = Slider
+key = SL
+velocity_mph = 86
+backspin_rpm = 100
+sidespin_rpm = 700
+gyrospin_rpm = 2300
+
+[pitch]
+name = Sweeper
+key = SW
+velocity_mph = 81
+backspin_rpm = -150
+sidespin_rpm = 2100
+gyrospin_rpm = 800
+
+[pitch]
+name = Curveball
+key = CB
+velocity_mph = 79
+backspin_rpm = -2350
+sidespin_rpm = 500
+gyrospin_rpm = 300
+
+[pitch]
+name = Changeup
+key = CH
+velocity_mph = 85
+backspin_rpm = 1400
+sidespin_rpm = -1300
+gyrospin_rpm = 800
+
+[pitch]
+name = Splitter
+key = FS
+velocity_mph = 87
+backspin_rpm = 750
+sidespin_rpm = -500
+gyrospin_rpm = 900
+
+[pitch]
+name = Cutter
+key = FC
+velocity_mph = 89
+backspin_rpm = 1300
+sidespin_rpm = 400
+gyrospin_rpm = 1800
+
+[pitch]
+name = Forkball
+key = FO
+velocity_mph = 81
+backspin_rpm = -300
+sidespin_rpm = -150
+gyrospin_rpm = 1000
+
+[pitch]
+name = Knuckle-curve
+key = KC
+velocity_mph = 78
+backspin_rpm = -1900
+sidespin_rpm = 750
+gyrospin_rpm = 1000
+
+# Knuckleball: total spin is deliberately near zero. The Sawicki/Magnus model
+# used for every other pitch produces almost no lift or break at this spin
+# level, so the game gives very-low-spin pitches (< ~350 rpm total) a small
+# random "flutter" during flight instead - the pitcher can aim it, but can't
+# fully control where it drifts, same as the real thing.
+[pitch]
+name = Knuckleball
+key = KN
+velocity_mph = 68
+backspin_rpm = 80
+sidespin_rpm = -40
+gyrospin_rpm = 60

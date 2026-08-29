@@ -1,0 +1,29 @@
+# Aerodynamic and ball physics constants.
+# Units: feet, slugs, seconds (consistent with gravity = 32.174 ft/s^2).
+#
+# Drag coefficient (cd) and lift (Cl) model from Sawicki & Hubbard 2003:
+#   S = ball_radius * |omega_perp| / |v|   (spin parameter, dimensionless)
+#   Cl = cl_slope * S           if S < cl_break
+#   Cl = cl_a + cl_b * S       otherwise
+#
+# Gyrospin along the flight axis produces no Magnus lift (it is subtracted
+# from the effective spin before computing S and lift direction).
+
+[physics]
+air_density    = 0.00238
+ball_mass_oz   = 5.125
+ball_radius_in = 1.45
+cd             = 0.35
+cl_slope       = 1.18
+cl_break       = 0.10
+cl_a           = 0.07
+cl_b           = 0.48
+gravity        = 32.174
+sim_dt         = 0.0005
+
+# Release point (feet, catcher POV: +x = right, +y = toward batter, +z = up).
+# x: arm-side offset from center; z: height; y: distance from plate.
+[release]
+x = -1.4
+y = 55.0
+z = 5.9

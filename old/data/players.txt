@@ -1,0 +1,36 @@
+# Player configuration.
+# pci_rx / pci_rz : PCI contact-ellipse radii (feet). Bigger = easier to make contact.
+# power_ev        : Maximum exit velocity (mph) on a perfect squared-up ball.
+# side            : Batter handedness. R or L.
+#
+# trait_vert  : up | down | none  - rewards high or low contact (launch angle)
+# trait_horiz : pull | push | none - rewards early (pull) or late (push/oppo) contact
+# trait_bonus : how strong the trait's power swing is (0.0-0.3 is a sane range).
+#   An "up + pull" hitter wants to swing slightly EARLY and UNDER the ball
+#   (not late and on top of it) to get his bonus - matching a real pull-power hitter.
+
+[batter_user]
+side = R
+power_ev = 107
+pci_rx = 1.05
+pci_rz = 0.55
+trait_vert = none
+trait_horiz = none
+trait_bonus = 0.12
+
+[batter_ai]
+side = R
+power_ev = 104
+pci_rx = 1.0
+pci_rz = 0.5
+trait_vert = none
+trait_horiz = pull
+trait_bonus = 0.10
+
+# command_sigma : Gaussian noise on pitch location (feet at plate).
+# Larger = wilder. User has tighter command; AI is looser.
+[pitcher_user]
+command_sigma = 0.35
+
+[pitcher_ai]
+command_sigma = 0.55

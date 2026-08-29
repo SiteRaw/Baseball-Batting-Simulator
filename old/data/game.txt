@@ -1,0 +1,73 @@
+# Game tuning constants.
+
+# Strike zone (feet). half_width from center; bottom and top heights.
+[zone]
+half_width = 0.708
+bottom     = 1.55
+top        = 3.45
+
+# Batting contact model.
+#   timing_full     : Absolute timing error (s) at which quality drops to zero.
+#                     This game is primarily a TIMING game - timing is the
+#                     dominant factor in contact quality.
+#   timing_whiff    : Beyond this offset (s) → automatic swing-and-miss.
+#   pci_whiff       : Normalised PCI (aim) error beyond this → automatic miss.
+#   foul_tip_band   : Normalised PCI error between foul_tip_band and pci_whiff → foul tip.
+#                     (Both thresholds are intentionally generous now - missing
+#                     the green PCI reticle by a bit shouldn't hurt as much as
+#                     bad timing. See outcomes.rs: quality = qt*(0.55+0.45*qp).)
+#   la_*            : Launch-angle formula coefficients (degrees).
+#   spray_per_late  : Degrees of spray per second of timing error.
+#   spray_noise     : Random spray jitter (degrees, 1-sigma).
+#   la_noise        : Random LA jitter (degrees, 1-sigma).
+#   ev_min          : Exit velocity (mph) on a completely mis-hit ball.
+#   foul_angle      : |spray| > this (deg) → foul ball.
+#   bat_backspin_*  : Backspin (rpm) placed on batted ball.
+#   bat_sidespin_per_spray : Side-spin (rpm per degree of spray).
+#   reach_penalty_per_ft : Power lost (fraction) per foot the PCI sits outside
+#                          the strike zone - "reaching" for a pitch off the plate.
+#   reach_penalty_cap    : Maximum fraction of power that can be lost this way.
+#   auto_pitch_default   : 1 = auto-pitch is ON by default in batting mode.
+#   auto_pitch_delay     : Seconds between pitches when auto-pitch is enabled.
+[batting]
+timing_full             = 0.100
+timing_whiff            = 0.135
+pci_whiff               = 1.60
+foul_tip_band           = 1.30
+la_center               = 13
+la_per_vert             = 55
+la_per_late             = 140
+spray_per_late          = 800
+spray_noise             = 6
+la_noise                = 4
+ev_min                  = 34
+foul_angle              = 45
+bat_backspin_base       = 500
+bat_backspin_per_la     = 60
+bat_sidespin_per_spray  = 25
+reach_penalty_per_ft    = 0.30
+reach_penalty_cap       = 0.55
+auto_pitch_default      = 1
+auto_pitch_delay        = 3.0
+
+# Park dimensions (feet).
+[park]
+fence_line   = 330
+fence_cf     = 404
+wall_height  = 9
+
+# 3-D camera / perspective (behind-catcher view).
+#   time_scale : Simulation speed multiplier (1.0 = real time).
+#   cam_back   : Distance behind home plate the camera sits (feet).
+#   cam_height : Camera height above ground (feet).
+#   focal      : Perspective focal length (pixels; tune for field-of-view feel).
+[view]
+time_scale  = 1.0
+cam_back    = 13
+cam_height  = 4.6
+focal       = 1250
+
+# Cosmetic full-screen FX on strikeout (fire/inferno) and walk (ice storm).
+# Purely visual — set to 0 to disable if it's too distracting.
+[fx]
+enable_outcome_fx = 1
