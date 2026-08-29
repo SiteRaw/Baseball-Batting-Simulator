@@ -125,35 +125,16 @@ north of 450 ft instead of reading as "the fence distance plus a few feet."
 
 ---
 
-## Fielders & Fielder-Aware Hit/Out Classification
+## Fielder-Aware Hit/Out Classification
 
-The 7 non-battery defensive positions (1B/2B/3B/SS/LF/CF/RF) are shown as
-simple dots at their honest, no-shift positions. Ground balls, liners, and
-fly balls are no longer decided by exit velocity and launch angle alone:
-each ball's landing angle from home plate is compared against those same
-positions — hit close to a fielder's angle, it's more likely fielded for an
+Ground balls, liners, and fly balls are no longer decided by exit velocity
+and launch angle alone. Each ball's landing angle from home plate is
+compared against approximate infield (1B/2B/3B/SS) and outfield (LF/CF/RF)
+positions: hit close to a fielder's angle, it's more likely fielded for an
 out; hit into a gap between two fielders, it's more likely to sneak through
 for a hit. Harder contact and, for fly balls, less hang time both cut into
-a fielder's effective range.
-
-Whichever fielder is responsible for the play animates from their honest
-spot toward the ball — converging on the landing point and stopping there
-for an out (the "catch"), or continuing on to chase it down at its final
-resting spot for a hit — so you get a visual read on *why* it went the way
-it did, not just a text line. Out descriptions also name the fielder
+a fielder's effective range. Out descriptions now name the fielder involved
 ("Ground out to SS", "Fly out to CF").
-
----
-
-## Pitcher's-Eye View
-
-Switch to pitching mode (`Tab`) and the camera flips to sit behind the
-mound looking back at the plate, instead of the usual behind-the-plate
-view — a proper reversed camera (turning 180° also mirrors left/right, so
-a position that was on your right as a batter is correctly on your left as
-a pitcher), not just a repositioned copy of the same view. Everything —
-field, fielders, ball flight, aim reticle — re-renders correctly from that
-perspective automatically.
 
 ---
 
@@ -177,12 +158,10 @@ your aim before you commit to the throw.
 
 ---
 
-## Outcome FX
+## Strikeout / Walk FX
 
-Brief full-screen flourishes on the big moments — fire/embers on a
-strikeout, an ice storm on a walk, a couple of lightning bolts on any hit,
-and a short staggered fireworks show on a home run. All purely cosmetic;
-disable them together in `game.txt`:
+A brief full-screen flourish plays on a strikeout (fire/embers) or a walk
+(ice storm) — purely cosmetic. Disable it in `game.txt`:
 
 ```
 [fx]
